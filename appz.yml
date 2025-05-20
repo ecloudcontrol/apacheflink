@@ -36,4 +36,4 @@
           vault: AKAMAI_ACCESS_KEY
         AWS_SECRET_ACCESS_KEY:
           vault: AKAMAI_SECRET_KEY
-        revision : 3
+        revision : 4
