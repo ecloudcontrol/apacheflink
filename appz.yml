@@ -24,6 +24,7 @@
         mount: /appz/data
         name: data
         size: 5Gi
+        matchLabels: false
       # - claim: mysql-backup
       #   mount: /appz/backup
       #   name: backup
