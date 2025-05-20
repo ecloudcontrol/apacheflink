@@ -1,14 +1,14 @@
     app:
-        name: MySQL
-        code: mysql
-        notify: nsrahul@cloudbourne.com
+        name: ApacheFlink
+        code: apacheflink
+        notify: apaul@ecloudcontrol.com
 
     build:
-        version: 8.0
+        version: 2.0
         env: POC
         build_file: none
         output_files: output/*.zip
-        image_template: mysql_cluster-8.0
+        image_template: apacheflink-2.0
 
     deploy:
         context: alpha/POC
@@ -17,23 +17,23 @@
         resources: x-large
         ingress: none
         port:
-        - 3306
+        - 8081
 
     volumes:
-      - claim: mysql-data
-        mount: /var/lib/mysql
+      - claim: flink-data
+        mount: /appz/data
         name: data
         size: 5Gi
-      - claim: mysql-backup
-        mount: /appz/backup
-        name: backup
-        size: 5Gi
+      # - claim: mysql-backup
+      #   mount: /appz/backup
+      #   name: backup
+      #   size: 5Gi
 
     properties:
-        MYSQL_ROOT_PASSWORD:
-          vault: MYSQL_ROOT_PASSWORD_KEY
-        MYSQL_SPRINGBOOTWEB_PASSWORD:
-          vault: MYSQL_SPRINGBOOTWEB_PASSWORD
-        MYSQL_WORDPRESS_PASSWORD:
-          vault: MYSQL_WORDPRESS_PASSWORD
+        FLINK_LOG_DIR: /appz/log
+        ENABLE_FLUENTD: 1
+        AWS_ACCESS_KEY_ID:
+          vault: AKAMAI_ACCESS_KEY
+        AWS_SECRET_ACCESS_KEY:
+          vault: AKAMAI_SECRET_KEY
         revision : 5
