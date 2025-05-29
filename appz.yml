@@ -4,11 +4,11 @@
         notify: apaul@ecloudcontrol.com
 
     build:
-        version: 2.0
+        version: 1.20
         env: POC
         build_file: none
         output_files: output/*.zip
-        image_template: apacheflink-2.0
+        image_template: apacheflink-1.20
 
     deploy:
         context: alpha/POC
