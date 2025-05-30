@@ -4,14 +4,14 @@
         notify: apaul@ecloudcontrol.com
 
     build:
-        version: 1.20
+        version: 2.0
         env: POC
         build_file: none
         output_files: output/*.zip
         image_template: apacheflink-1.20
 
     deploy:
-        context: flink/POC
+        context: alpha/POC
         type: statefulset
         replicas: 1
         resources: x-large
