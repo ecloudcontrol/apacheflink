@@ -1,6 +1,6 @@
     app:
-        name: ApacheFlink
-        code: apacheflink
+        name: Flink-test
+        code: flink-test
         notify: apaul@ecloudcontrol.com
 
     build:
@@ -8,7 +8,7 @@
         env: POC
         build_file: none
         output_files: output/*.zip
-        image_template: apacheflink-2.0
+        image_template: apacheflink-1.20
 
     deploy:
         context: alpha/POC
@@ -19,7 +19,7 @@
         - 8081
 
     volumes:
-      - claim: flink-data
+      - claim: flink-data-test
         mount: /appz/data
         name: data
         size: 5Gi
